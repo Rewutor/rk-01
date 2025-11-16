@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Самая веселая страница в интернете!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 5px dashed #ff6b6b;
+        }
+
+        h1 {
+            color: #ff4757;
+            font-size: 3em;
+            text-shadow: 3px 3px 0 #fed330;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .dancing-text {
+            font-size: 1.5em;
+            color: #3742fa;
+            animation: dance 1s infinite;
+        }
+
+        @keyframes dance {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .emoji-party {
+            font-size: 4em;
+            margin: 20px 0;
+        }
+
+        .cat {
+            font-size: 8em;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cat:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .secret-button {
+            background: #ff9ff3;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+
+        .secret-button:hover {
+            background: #f368e0;
+            transform: scale(1.1);
+        }
+
+        .rainbow-text {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 1.8em;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff0000;
+            animation: confetti-fall 5s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji-party">
+            🎉 🥳 🎊 🤪
+        </div>
+        
+        <h1>УРААА! ЗАРАБОТАЛО! 🚀</h1>
+        
+        <p class="dancing-text">Ваш сервер жив и танцует от радости! 💃</p>
+        
+        <div class="cat" onclick="meow()">🐱</div>
+        
+        <p class="rainbow-text">Nginx + HTML = ❤️</p>
+        
+        <button class="secret-button" onclick="showSurprise()">Нажми меня! (осторожно!)</button>
+        <button class="secret-button" onclick="startParty()">ВКЛЮЧИТЬ ВЕЧЕРИНКУ! 🎉</button>
+        
+        <div id="surprise" style="display: none; margin-top: 20px;">
+            <h2>🎊 СЮРПРИЗ! 🎊</h2>
+            <p>Вы только что создали самую крутую страницу в истории интернета!</p>
+            <p>Дата и время сервера: <span id="server-time"></span></p>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 15px; background: #dfe6e9; border-radius: 10px;">
+            <h3>🎯 Достижение разблокировано!</h3>
+            <p>«Властелин Nginx» 🏆</p>
+            <p>Уровень: Профессионал вечеринок 🥇</p>
+        </div>
+    </div>
+
+    <script>
+        function meow() {
+            alert('Мяу! 🐱 Кот рад, что вы здесь!');
+            let audio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==');
+            audio.play().catch(e => console.log('Кот тихо мяукнул'));
+        }
+
+        function showSurprise() {
+            document.getElementById('surprise').style.display = 'block';
+            document.getElementById('server-time').textContent = new Date().toLocaleString();
+            
+            // Добавляем немного анимации
+            const surprise = document.getElementById('surprise');
+            surprise.style.animation = 'bounce 0.5s';
+            setTimeout(() => surprise.style.animation = '', 500);
+        }
+
+        function startParty() {
+            alert('ВЕЧЕРИНКА НАЧИНАЕТСЯ! 🎊');
+            
+            // Создаем конфетти
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    // Удаляем конфетти после анимации
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 100);
+            }
+            
+            // Меняем заголовок
+            document.querySelector('h1').textContent = 'ВЕЧЕРИНКА В ПОЛНОМ РАЗГАРЕ! 🥳';
+        }
+
+        // Автоматическое обновление времени
+        setInterval(() => {
+            if (document.getElementById('server-time').textContent) {
+                document.getElementById('server-time').textContent = new Date().toLocaleString();
+            }
+        }, 1000);
+
+        // Случайные фразы при загрузке
+        const phrases = [
+            "Вы великолепны! 🌟",
+            "Сервер в восторге! 😄", 
+            "Кодинг - это весело! 💻",
+            "Nginx обожает вас! ❤️",
+            "Пора танцевать! 💃"
+        ];
+        
+        document.querySelector('.dancing-text').textContent = 
+            phrases[Math.floor(Math.random() * phrases.length)];
+    </script>
+</body>
+</html>
