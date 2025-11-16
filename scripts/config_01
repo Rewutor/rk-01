@@ -1,0 +1,5 @@
+Host rk-01
+HostName 192.168.1.100          # IP вашего сервера
+User roman                     # Пользователь на сервере
+Port 22
+IdentityFile ~/.ssh/id_ed25519
